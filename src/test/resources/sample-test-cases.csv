@@ -1,0 +1,6 @@
+message,expected
+"Please review the meeting agenda before 3 PM.",SAFE
+"Your bank account is locked. Verify your password at http://secure-bank.xyz.",SCAM
+"The delivery company needs a fee and tracking-link confirmation.",SUSPICIOUS
+"You have won a cash prize. Send your card details to claim it.",SCAM
+"Dinner is confirmed for Saturday at 7 PM.",SAFE

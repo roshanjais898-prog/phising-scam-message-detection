@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShieldCheck - Message Detector</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <main class="app-shell">
+        <nav class="topbar" aria-label="Primary navigation">
+            <div class="brand">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M12 2 4.5 5v6.2c0 5.1 3.2 9.1 7.5 10.8 4.3-1.7 7.5-5.7 7.5-10.8V5L12 2Zm0 2.2 5.5 2.2v4.8c0 3.8-2.2 7-5.5 8.5-3.3-1.5-5.5-4.7-5.5-8.5V6.4L12 4.2Zm-.9 3.4h1.8v5.2h-1.8V7.6Zm0 7h1.8v1.8h-1.8v-1.8Z"/></svg>
+                </span>
+                <span>ShieldCheck</span>
+            </div>
+            <span class="nav-status"><span class="status-dot"></span> Detector online</span>
+        </nav>
+
+        <section class="hero">
+            <div>
+                <p class="eyebrow">AI-powered protection</p>
+                <h1>Is this message<br><span>safe or suspicious?</span></h1>
+            </div>
+            <p class="intro">Paste an email or text message to check it with Java TF-IDF and Naive Bayes analysis.</p>
+        </section>
+
+        <section class="analysis-card">
+            <label for="message">Message to analyze</label>
+            <div class="textarea-wrap">
+                <textarea id="message" maxlength="5000" placeholder="Paste a message here..."></textarea>
+                <span id="charCount">0 / 5000</span>
+            </div>
+            <div class="actions">
+                <button type="button" class="secondary" id="clearBtn">Clear</button>
+                <button type="button" class="primary" id="analyzeBtn">
+                    <span>Analyze message</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </div>
+        </section>
+
+        <section id="result" class="result-card" hidden aria-live="polite">
+            <div class="result-heading">
+                <div id="classificationIcon" class="classification-icon"></div>
+                <div>
+                    <p class="result-label">Analysis result</p>
+                    <h2 id="classification">Safe</h2>
+                </div>
+                <div class="score">
+                    <strong id="riskScore">0%</strong>
+                    <span>risk score</span>
+                </div>
+            </div>
+            <div class="score-track"><div id="scoreBar"></div></div>
+            <p id="explanation" class="explanation"></p>
+            <div class="details-grid">
+                <div>
+                    <h3>Detected indicators</h3>
+                    <ul id="indicators"></ul>
+                </div>
+                <div>
+                    <h3>Suspicious links</h3>
+                    <ul id="links"></ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="samples">
+            <h2>Try an example</h2>
+            <div class="sample-grid">
+                <button class="sample" data-message="Hi, I wanted to confirm our team meeting tomorrow at 10 AM in the main conference room.">
+                    <span class="sample-icon safe">✓</span>
+                    <span><strong>Normal message</strong><small>Routine conversation</small></span>
+                </button>
+                <button class="sample" class="sample" data-message="Your package delivery is delayed. Update your address and confirm payment using this link: http://package-fee.top/track">
+                    <span class="sample-icon suspicious">!</span>
+                    <span><strong>Suspicious message</strong><small>Unusual link or request</small></span>
+                </button>
+                <button class="sample" data-message="URGENT! You won the lottery prize. Send your bank account details and OTP to claim the money immediately.">
+                    <span class="sample-icon scam">⚠</span>
+                    <span><strong>Scam message</strong><small>Prize and sensitive data</small></span>
+                </button>
+            </div>
+        </section>
+    </main>
+    <script src="/app.js"></script>
+</body>
+</html>
